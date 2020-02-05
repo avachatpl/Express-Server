@@ -1,0 +1,29 @@
+import React, { useState } from 'react';
+import { FlatList, ActivityIndicator, Text, View, Button  } from 'react-native';
+
+export default function LocalInfo({navigation}) {
+   
+    let dataSource=useState('');
+
+    const componentDidMount=()=>{
+        return fetch('http://localhost:3000/')
+          .then((response) => response.json())
+          .then((responseJson) => {
+
+                console.log('bhetla ki nahi data')
+                console.log(responseJson)
+                dataSource=responseJson
+              
+            })
+      }
+    return(
+      <View style={{flex: 1, paddingTop:20}}>
+        <Button title="click" onPress={componentDidMount} />
+    <Text>{this.dataSource.name}</Text>
+        
+         
+        <Text>hii</Text>
+      </View>
+    );
+
+}

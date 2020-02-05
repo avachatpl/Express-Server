@@ -1,0 +1,56 @@
+<html>
+<head>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+<!-- <script type="text/javascript" src="data.json"></script> -->
+<script>
+//function fun()
+//{
+	/*var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+     document.getElementById("demo").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "http://localhost:3000/getInfo", true);
+  xhttp.send("priya");*/
+ // var obj=JSON.parse(JSON.stringify(data));
+ //  document.getElementById("demo").innerHTML= JSON.stringify(obj);
+ //  data.book1.pages=100;
+//}
+function fun()
+{
+	$.ajax
+	(
+		{
+			type: "POST",
+			url: "http://localhost:3000/getInfo",
+			contentType: "application/json",
+			data:JSON.stringify({
+					
+					"name":"kajal",
+					"age":"25",
+					}),
+			
+		
+		success:function(getData){
+			//var obj =  JSON.parse(getData);
+			//console.log(obj);
+			document.getElementById("demo").innerHTML = JSON.stringify(getData);
+		},
+		error:function(getData){
+			document.getElementById("demo").innerHTML = this.getData;
+		},
+		}
+	);
+}
+
+</script>
+<button type="submit" onclick="fun()" >submit</button>
+<p id="demo"></p>
+</body>
+</html>
