@@ -2,6 +2,8 @@ const express= require('express')
 var cors = require('cors');
 //var bodyParser = require('body-parser');
 const app=express();
+var port = process.env.PORT || 4000;
+
 app.use(cors());
 app.use(express.json());
 //app.get("/hello",(req,res)=>res.send("hello word"));
@@ -24,4 +26,4 @@ var x=JSON.stringify(person);
 res.send(x);
 });
 
-app.listen(4000, "0.0.0.0",()=>console.log("server started"));
+app.listen(port, "0.0.0.0",()=>console.log("server started"));
